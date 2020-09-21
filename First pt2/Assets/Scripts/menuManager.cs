@@ -7,18 +7,23 @@ using UnityEngine.UI;
 public class menuManager : MonoBehaviour
 {
     // Create public variables(GameObjects)
-    public GameObject player;
+   
     public GameObject mainMenu;
     public GameObject curser;
-    public GameObject Level01;
+    public GameObject gameArena;
     public GameObject[] curserPositions;
     public GameObject playerSelectIndicator;
     public Text thisText;
+    public GameObject player01SpawnPoint;
+    public GameObject playerPrefab;
 
+    // Declare camera variables
     public Camera gameCamera;
     public Camera mainCamera;
 
+     
     private bool onStartGameSelection;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,12 +71,18 @@ public class menuManager : MonoBehaviour
         
         if(onStartGameSelection &&  Input.GetKeyDown("return"))
         {
-            Level01.SetActive(true);
-            player.SetActive(true);
+            // Start game
+           
+            // Turn off main menu turn on game Arena
+            gameArena.SetActive(true);
             mainMenu.SetActive(false);
 
+            // Turn off main camera, turn on gameplayer camera
             mainCamera.enabled = false;
             gameCamera.enabled = true;
+
+            // Instantiate the player from a prefab!
+            Instantiate(playerPrefab, player01SpawnPoint.transform.position, Quaternion.identity);
         }
 
 
