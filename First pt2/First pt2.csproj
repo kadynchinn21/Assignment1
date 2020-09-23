@@ -221,6 +221,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\firstScriptpt2.cs" />
     <Compile Include="Assets\Scripts\menuManager.cs" />
+    <Compile Include="Assets\Scripts\projectile.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -14,16 +14,17 @@ public class firstScriptpt2 : MonoBehaviour
     // and we need an animator reference
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         Debug.Log("Hello World");
 
         rb2d = GetComponent<Rigidbody2D>();
         spriteRen = GetComponent<SpriteRenderer>();
         tankAnim = GetComponent<Animator>();
+    }
+        public GameObject projectilePrefab;
 
-        
-	}
+     
 
     // Update is called once per frame
     void Update()
@@ -84,5 +85,25 @@ public class firstScriptpt2 : MonoBehaviour
             spriteRen.flipX = true;
             tankAnim.Play("PlayerMoveRight");
         }
+
+
+        // If the user pushes the space bar then fire a bullet
+        // check if user has pushed space
+        if(Input.GetKeyDown("space"))
+        {
+           
+            
+            // Instantiate the player from a prefab!
+           GameObject thisProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+           Rigidbody2D projectileRB = thisProjectile.GetComponent<Rigidbody2D>();
+           projectileRB.velocity = new Vector2(0, 12);
+           
+        }
+
+
+        // instantiate projectile
+        // where? what position does the projectile start in
+        // what direction will the projectile move?
+        // How fast will the projectile move?
     }
 }
